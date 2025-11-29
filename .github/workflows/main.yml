@@ -1,4 +1,15 @@
-name: Configure Core RDP Settings
+name: RDP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  secure-rdp:
+    runs-on: windows-latest
+    timeout-minutes: 3600
+
+    steps:
+      - name: Configure Core RDP Settings
         run: |
           # Enable Remote Desktop and disable Network Level Authentication (if needed)
           Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' `
